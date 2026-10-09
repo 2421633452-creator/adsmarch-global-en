@@ -1,0 +1,5 @@
+# AdsMarch Global (English) - non-indexed test deployment
+User-Agent: *
+Disallow: /
+
+Sitemap: https://2421633452-creator.github.io/adsmarch-global-en/sitemap.xml
