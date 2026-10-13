@@ -1046,3 +1046,308 @@ main > section:nth-of-type(1) [class~="lg:col-span-4"] > [class~="border-paper/1
 }
 main > section:nth-of-type(1) [class~="lg:col-span-4"] ol > li > span { color: var(--amd-text-3) !important; }
 main > section:nth-of-type(1) [class~="lg:col-span-4"] ol > li > span:first-child { color: var(--amd-primary) !important; }
+
+/* ==== HERO-REFINE-BEGIN ==== */
+/* 八大能力图标令牌 —— 由站点既有 --ic-* 派生（蓝 / 白两套，颜色可控） */
+:root, :host {
+  /* 01 Strategy & Market Entry */
+  --hr-ic-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='4.6'/%3E%3Ccircle cx='12' cy='12' r='1.3'/%3E%3C/svg%3E");
+  --hr-ic-w-1: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='4.6'/%3E%3Ccircle cx='12' cy='12' r='1.3'/%3E%3C/svg%3E");
+  /* 02 Media & User Acquisition */
+  --hr-ic-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11v2a1 1 0 0 0 1 1h2.2l4.3 3.4a.8.8 0 0 0 1.5-.6V7.2a.8.8 0 0 0-1.5-.6L6.2 10H4a1 1 0 0 0-1 1Z'/%3E%3Cpath d='M16 8.5a5 5 0 0 1 0 7'/%3E%3Cpath d='M18.8 6a8.5 8.5 0 0 1 0 12'/%3E%3C/svg%3E");
+  --hr-ic-w-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11v2a1 1 0 0 0 1 1h2.2l4.3 3.4a.8.8 0 0 0 1.5-.6V7.2a.8.8 0 0 0-1.5-.6L6.2 10H4a1 1 0 0 0-1 1Z'/%3E%3Cpath d='M16 8.5a5 5 0 0 1 0 7'/%3E%3Cpath d='M18.8 6a8.5 8.5 0 0 1 0 12'/%3E%3C/svg%3E");
+  /* 03 Creative & Content */
+  --hr-ic-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z'/%3E%3Cpath d='M18.5 15.5l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7Z'/%3E%3C/svg%3E");
+  --hr-ic-w-3: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z'/%3E%3Cpath d='M18.5 15.5l.7 1.9 1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7Z'/%3E%3C/svg%3E");
+  /* 04 Influencer & Social */
+  --hr-ic-4: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3.4'/%3E%3Cpath d='M2.8 20a6.2 6.2 0 0 1 12.4 0'/%3E%3Cpath d='M16.5 5.2a3.4 3.4 0 0 1 0 6.6'/%3E%3Cpath d='M17.6 14.2A6.2 6.2 0 0 1 21.4 20'/%3E%3C/svg%3E");
+  --hr-ic-w-4: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3.4'/%3E%3Cpath d='M2.8 20a6.2 6.2 0 0 1 12.4 0'/%3E%3Cpath d='M16.5 5.2a3.4 3.4 0 0 1 0 6.6'/%3E%3Cpath d='M17.6 14.2A6.2 6.2 0 0 1 21.4 20'/%3E%3C/svg%3E");
+  /* 05 Search & AI Visibility */
+  --hr-ic-5: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='6.4'/%3E%3Cpath d='M16 16l4.4 4.4'/%3E%3Cpath d='M11 8.4v5.2M8.4 11h5.2'/%3E%3C/svg%3E");
+  --hr-ic-w-5: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='6.4'/%3E%3Cpath d='M16 16l4.4 4.4'/%3E%3Cpath d='M11 8.4v5.2M8.4 11h5.2'/%3E%3C/svg%3E");
+  /* 06 App Store Growth */
+  --hr-ic-6: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.2' y='3.2' width='7' height='7' rx='2'/%3E%3Crect x='13.8' y='3.2' width='7' height='7' rx='2'/%3E%3Crect x='3.2' y='13.8' width='7' height='7' rx='2'/%3E%3Cpath d='M17.3 13.6v7.2M13.7 17.2h7.2'/%3E%3C/svg%3E");
+  --hr-ic-w-6: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.2' y='3.2' width='7' height='7' rx='2'/%3E%3Crect x='13.8' y='3.2' width='7' height='7' rx='2'/%3E%3Crect x='3.2' y='13.8' width='7' height='7' rx='2'/%3E%3Cpath d='M17.3 13.6v7.2M13.7 17.2h7.2'/%3E%3C/svg%3E");
+  /* 07 Commerce & Revenue */
+  --hr-ic-7: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2.2l2.1 10.4a1.6 1.6 0 0 0 1.6 1.3h7.9a1.6 1.6 0 0 0 1.6-1.2L20 7.4H6'/%3E%3Ccircle cx='9.5' cy='19.4' r='1.3'/%3E%3Ccircle cx='17' cy='19.4' r='1.3'/%3E%3C/svg%3E");
+  --hr-ic-w-7: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2.2l2.1 10.4a1.6 1.6 0 0 0 1.6 1.3h7.9a1.6 1.6 0 0 0 1.6-1.2L20 7.4H6'/%3E%3Ccircle cx='9.5' cy='19.4' r='1.3'/%3E%3Ccircle cx='17' cy='19.4' r='1.3'/%3E%3C/svg%3E");
+  /* 08 Data & Growth Optimization */
+  --hr-ic-8: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231d5fe0' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V4'/%3E%3Cpath d='M4 20h16'/%3E%3Crect x='7.5' y='12.5' width='3' height='5' rx='1'/%3E%3Crect x='12.8' y='9' width='3' height='8.5' rx='1'/%3E%3Crect x='18.1' y='5.5' width='3' height='12' rx='1'/%3E%3C/svg%3E");
+  --hr-ic-w-8: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20V4'/%3E%3Cpath d='M4 20h16'/%3E%3Crect x='7.5' y='12.5' width='3' height='5' rx='1'/%3E%3Crect x='12.8' y='9' width='3' height='8.5' rx='1'/%3E%3Crect x='18.1' y='5.5' width='3' height='12' rx='1'/%3E%3C/svg%3E");
+}
+/* ============================================================
+   AdsMarch — HERO REFINEMENT (globe + capabilities)
+   MARKER AMD-HERO-REFINE
+   仅作用于【首页 Hero】（section 1 且其内部含 88svh 网格）。
+   内页 section 1 不含 88svh，因此完全不受影响。
+   目的：
+     1) 地球成为右侧独立视觉主体（不再被目录卡覆盖）
+     2) 八大能力目录从「大面积玻璃浮卡」改为 Hero 下方 2×4 网格卡片
+   ============================================================ */
+
+/* ---------- 1. 地球与能力网格的几何令牌 ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) {
+  --hr-globe: clamp(286px, 33vw, 486px);
+  --hr-gap:   clamp(1.75rem, 3.2vw, 3.25rem);
+  --hr-card-r: 14px;
+  /* Hero 光效只铺在顶部波段，能力网格落在干净的浅底上 */
+  background-image: var(--amd-hero-bg);
+  background-repeat: no-repeat;
+  background-size: 100% 820px, 100% 820px, 100% 100%;
+  background-position: top center;
+}
+
+/* ---------- 2. 停用 V2 的「section 地球 + 轨道环」 ---------- */
+main > section:nth-of-type(1):has([class*="88svh"])::before,
+main > section:nth-of-type(1):has([class*="88svh"])::after {
+  content: none !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ---------- 3. Hero 网格：第 1 行 [文案 | 地球]，第 2 行 通栏能力网格 ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="grid"][class~="items-end"] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--hr-globe);
+  column-gap: var(--hr-gap);
+  row-gap: 0;
+  align-items: start;
+  padding-top: clamp(1rem, 1.8vw, 1.5rem);
+  padding-bottom: clamp(.75rem, 1.4vw, 1.25rem);
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="grid"][class~="items-end"] > [class~="lg:col-span-8"] {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="grid"][class~="items-end"] > [class~="lg:col-span-4"] {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  margin-top: clamp(1.5rem, 2.6vw, 2.25rem);
+}
+
+/* ---------- 4. 地球：独立主视觉（右侧，完整可见，透明底无矩形边界） ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-8"] { position: relative; }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-8"]::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  top: 50%;
+  left: calc(100% + var(--hr-gap));
+  transform: translateY(-50%);
+  width: var(--hr-globe);
+  aspect-ratio: 1;
+  background-image:
+    radial-gradient(50% 50% at 50% 50%, rgba(59,130,246,.22) 0%, rgba(59,130,246,.085) 46%, rgba(59,130,246,0) 100%),
+    url(../media/v2-globe.webp);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: 100% 100%, contain;
+  animation: hr-globe-float 14s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+@keyframes hr-globe-float {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -9px; }
+}
+
+/* ---------- 5. 目录玻璃卡 → 透明容器 ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] > [class~="border-paper/12"] {
+  border: 0 !important;
+  border-left: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* ---------- 6. 区块标题（沿用原文：「系统的构成」/「How the system is built」） ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] > [class~="border-paper/12"] > p {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0 0 clamp(1rem, 1.6vw, 1.3rem) !important;
+  padding: 0 !important;
+  font-size: .9rem !important;
+  font-weight: 700 !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amd-primary) !important;
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] > [class~="border-paper/12"] > p::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 26px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--amd-primary);
+}
+
+/* ---------- 7. 八大能力网格（桌面 2 列 × 4 行） ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+}
+
+/* ---------- 8. 能力卡：图标 | (编号 / 名称) | 英文标签 ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li {
+  display: grid !important;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: .9rem;
+  margin: 0 !important;
+  padding: .78rem 1.1rem !important;
+  min-height: 66px;
+  border: 1px solid var(--amd-border) !important;
+  border-radius: var(--hr-card-r) !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(11,27,51,.045);
+  transition: transform .2s var(--amd-ease), box-shadow .2s var(--amd-ease), border-color .2s var(--amd-ease);
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:hover {
+  transform: translateY(-2px);
+  border-color: rgba(29,95,224,.38) !important;
+  box-shadow: 0 12px 26px -14px rgba(29,95,224,.42);
+}
+
+/* ---------- 9. 能力图标（复用站点既有线性图标，统一 24×24 / 1.6 线宽） ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li::before {
+  content: '';
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--amd-primary-soft);
+  background-image: var(--hr-ic);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 21px 21px;
+  transition: background-color .2s var(--amd-ease), background-image .2s var(--amd-ease);
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:hover::before {
+  background-color: var(--amd-primary);
+  background-image: var(--hr-ic-w);
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(1)::before { --hr-ic: var(--hr-ic-1); --hr-ic-w: var(--hr-ic-w-1); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(2)::before { --hr-ic: var(--hr-ic-2); --hr-ic-w: var(--hr-ic-w-2); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(3)::before { --hr-ic: var(--hr-ic-3); --hr-ic-w: var(--hr-ic-w-3); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(4)::before { --hr-ic: var(--hr-ic-4); --hr-ic-w: var(--hr-ic-w-4); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(5)::before { --hr-ic: var(--hr-ic-5); --hr-ic-w: var(--hr-ic-w-5); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(6)::before { --hr-ic: var(--hr-ic-6); --hr-ic-w: var(--hr-ic-w-6); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(7)::before { --hr-ic: var(--hr-ic-7); --hr-ic-w: var(--hr-ic-w-7); }
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:nth-child(8)::before { --hr-ic: var(--hr-ic-8); --hr-ic-w: var(--hr-ic-w-8); }
+
+/* ---------- 10. 卡片文本层级：编号 / 名称 / 英文标签 ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li > span:nth-child(1) {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: end;
+  font-size: .72rem !important;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.15;
+  color: var(--amd-primary) !important;
+  opacity: .85;
+}
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li > span:nth-child(2) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  align-self: start;
+  min-width: 0;
+  font-size: .95rem !important;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: normal !important;
+  color: var(--amd-text-1) !important;
+}
+/* 英文版构建产物里有一条双语去重层（权重 0,12,0）会隐藏该标签。
+   这里镜像其 li 类链把权重提到 (0,15,5) 并声明 display:block，使两站卡片样式完全一致 */
+main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li[class~="flex"][class~="items-baseline"][class~="gap-4"][class~="border-b"][class~="border-paper/10"][class~="py-2.5"] > span[class~="type-mono-label"][class~="ml-auto"][class~="hidden"][class~="whitespace-nowrap"][class~="text-paper/25"][class~="xl:block"] {
+  grid-column: 3 / 4;
+  grid-row: 1 / span 2;
+  align-self: center;
+  display: block !important;
+  padding-left: .9rem;
+  font-size: .625rem !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--amd-primary) !important;
+  opacity: .55;
+}
+  grid-column: 3 / 4;
+  grid-row: 1 / span 2;
+  align-self: center;
+  display: block !important;
+  padding-left: .9rem;
+  font-size: .625rem !important;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--amd-primary) !important;
+  opacity: .55;
+}
+
+/* ---------- 11. 优势条（保留，仅收紧上方间距） ---------- */
+main > section:nth-of-type(1):has([class*="88svh"]) dl { margin-top: 0; }
+
+/* ============================================================
+   12. 响应式
+   ============================================================ */
+
+/* 平板 / 移动：单列，文字在上、地球在下，能力网格按宽度自动列数 */
+@media (max-width: 1023px) {
+  main > section:nth-of-type(1):has([class*="88svh"]) {
+    --hr-globe: min(62vw, 330px);
+  }
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="grid"][class~="items-end"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="grid"][class~="items-end"] > [class~="lg:col-span-8"] {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    padding-bottom: calc(var(--hr-globe) + 1.75rem);
+  }
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="grid"][class~="items-end"] > [class~="lg:col-span-4"] {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    margin-top: 1.75rem;
+  }
+  /* 地球锚定到文案列底部，水平居中 */
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-8"]::after {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  main > section:nth-of-type(1):has([class*="88svh"]) h1 { max-width: none; }
+}
+
+/* 移动：能力卡单列 */
+@media (max-width: 639px) {
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li {
+    min-height: 66px;
+    padding: .7rem .9rem !important;
+  }
+}
+
+/* 无障碍：尊重减少动态偏好 */
+@media (prefers-reduced-motion: reduce) {
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-8"]::after {
+    animation: none !important;
+  }
+  main > section:nth-of-type(1):has([class*="88svh"]) [class~="lg:col-span-4"] ol > li:hover {
+    transform: none !important;
+  }
+}
+/* ==== HERO-REFINE-END ==== */
