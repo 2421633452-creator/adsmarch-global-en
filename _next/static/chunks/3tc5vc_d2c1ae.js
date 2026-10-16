@@ -31,15 +31,15 @@
         },
         {
           id: "grow-app",
-          name: "Grow an App",
-          en: "Grow an App",
+          name: "App Growth",
+          en: "App Growth",
           desc: "Building install volume while controlling retention and unit cost.",
           capabilities: ["appstore", "media", "creative"],
         },
         {
           id: "grow-ecommerce",
-          name: "Grow E-commerce",
-          en: "Grow E-commerce",
+          name: "E-commerce Growth",
+          en: "E-commerce Growth",
           desc: "Turn traffic into orders and make repeat purchase happen.",
           capabilities: ["commerce", "media", "creative"],
         },
@@ -145,8 +145,8 @@
           zh: "Data feedback is standard practice, not an add-on. Without it, the next budget round is guesswork.",
         },
       },
-      _GP = [{id:"launch",name:"Launch",en:"LAUNCH SPRINT",bestFor:"First-time overseas launch, new product testing, new country validation; new store cold start, new market or new product validation.",spend:"$8K - $15K / month (capped at $15K · 1 country / up to 2 platforms)",model:"Project-based · 30-45 days",desc:"A complete launch sprint: account and attribution checks, market and competitor analysis, first-round campaign launch and daily optimisation, ending with initial benchmarks and a 90-day roadmap.",media:!1},{id:"starter",name:"Starter",en:"STARTER",bestFor:"Cold-start clients in a single market with 1-2 channels.",spend:"Monthly net ad spend under $30K",model:"Monthly ongoing service",desc:"Start with cold start: get the acquisition model working in a single market and channel before talking about scale.",media:!0},{id:"growth",name:"Growth",en:"GROWTH",bestFor:"Local or regional clients running 2-3 channels and entering the scaling stage.",spend:"Monthly net ad spend $30K - $100K",model:"Monthly ongoing service",desc:"Moving budget between channels and running growth experiments to scale models that already work.",media:!0},{id:"scale",name:"Scale",en:"SCALE",bestFor:"Clients in multiple countries and channels with complex data coordination needs.",spend:"Monthly net ad spend $100K - $300K",model:"Monthly ongoing service",desc:"For multi-market account governance and business-level reviews, requiring a unified dashboard and cross-market coordination.",media:!0},{id:"enterprise",name:"Enterprise",en:"ENTERPRISE",bestFor:"Large enterprise clients needing a tailored service scope and working model.",spend:"Monthly net ad spend above $300K",model:"Custom",desc:"Service scope, working cadence and delivery standards are tailored to each client's business, on a case-by-case basis.",media:!0},{id:"none",name:"No Media Management Needed",en:"No Media Management Needed",bestFor:"Already have an in-house media team, or do not need managed media for now.",spend:"No managed media involved",model:"Choose other services as needed",desc:"No managed media needed, but you can still select creative production, influencer marketing, social media operations, SEO / GEO and other services separately.",media:!1}],
-      _CP = [{id:"accounts",num:"01",name:"Accounts",en:"Accounts",summary:"When going overseas for the first time, or planning to launch on several platforms at once, set up the media accounts and permissions first - this is the precondition for all media buying that follows.",industries:["app","ecommerce"],products:[{id:"accounts01",name:"Single-Platform Account Setup",unit:"Account / one-off"},{id:"accounts02",name:"Multi-Platform Account Package",unit:"Project / one-off"}],hasPlatforms:!0},{id:"creative",num:"02",name:"Creative Production",en:"Creative Production",summary:"Producing working creative continuously, per platform and market, rather than shooting one film and running it for a year.",industries:["app","ecommerce"],products:[{id:"creative01",name:"Creative Factory Lite",unit:"5 Videos + 15 Images / Month",desc:"5 videos + 15 images per month"},{id:"creative02",name:"Creative Factory Growth",unit:"12 Videos + 40 Images / Month",desc:"12 videos + 40 images per month"},{id:"creative03",name:"Creative Factory Scale",unit:"30 Videos + 100 Images / Month",desc:"30 videos + 100 images per month"},{id:"custom",name:"Custom Creative Services",unit:"Custom Creative Services",desc:"Tailored to your needs, discussed separately"}],creativeGroup:!0},{id:"influencer",num:"03",name:"Influencer Marketing",en:"Influencer Marketing",summary:"Finding the right people and placing content in your target market's social spaces.",industries:["app","ecommerce"],products:[{id:"influencer01",name:"Influencer Campaign",unit:"Project"}],inline:!0},{id:"social",num:"04",name:"Social Media Operations",en:"Social Media Operations",summary:"Ongoing operation of an official Instagram, TikTok or YouTube account to maintain a local presence.",industries:["app","ecommerce"],products:[{id:"social01",name:"Account Social Media Operations",unit:"Account / month"}],inline:!0},{id:"commerce",num:"05",name:"E-commerce Operations",en:"E-commerce Operations",summary:"From site build and store operations to email and affiliate: turning traffic into orders.",industries:["ecommerce"],products:[{id:"commerce01",name:"Shopify Standard Store",unit:"Project"},{id:"commerce02",name:"Shopify Brand Growth Store",unit:"Project"},{id:"commerce03",name:"Shopify Custom Enterprise Store",unit:"From / project"},{id:"commerce04",name:"TikTok Shop / DTC store operations",unit:"Month"},{id:"commerce05",name:"E-commerce Operations - Starter",unit:"Month"},{id:"commerce06",name:"E-commerce Operations - Growth",unit:"Month"},{id:"commerce07",name:"E-commerce Operations - Scale",unit:"Month"},{id:"commerce08",name:"EDM and Email Marketing",unit:"Month"},{id:"commerce09",name:"Impact Affiliate Management",unit:"Month"}]},{id:"search",num:"06",name:"SEO / GEO",en:"SEO / GEO",summary:"Improving brand visibility and information consistency across search engines and generative AI environments. What we optimise is the brand's own content and structured information - we do not promise outcomes on third-party platforms.",industries:["app","ecommerce"],products:[{id:"search01",name:"AI Search Visibility Optimization(GEO)",unit:"Project / 6 months"}]}];
+      _GP = [{id:"launch",name:"Launch",en:"LAUNCH SPRINT",bestFor:"First-time overseas launch, new product testing, new market or store cold start.",spend:"$8K - $15K / month (capped at $15K · 1 country / up to 2 platforms)",model:"Project-based · 30-45 days",desc:"A full launch sprint: audits, market and competitor analysis, first campaigns, daily optimisation, closing benchmarks and a 90-day roadmap.",media:!1},{id:"starter",name:"Starter",en:"STARTER",bestFor:"Cold-start brands in a single market, 1–2 channels.",spend:"Under $30K / month",model:"Monthly retainer",desc:"Get the acquisition model working in one market and channel before scaling.",media:!0},{id:"growth",name:"Growth",en:"GROWTH",bestFor:"Local or regional brands in 2–3 channels entering scale.",spend:"$30K - $100K / month",model:"Monthly retainer",desc:"Scale what works: shift budget across channels and run growth experiments.",media:!0},{id:"scale",name:"Scale",en:"SCALE",bestFor:"Brands running multiple countries and channels with complex data needs.",spend:"$100K - $300K / month",model:"Monthly retainer",desc:"Multi-market account governance with unified dashboards and cross-market coordination.",media:!0},{id:"enterprise",name:"Enterprise",en:"ENTERPRISE",bestFor:"Large brands needing a tailored scope and working model.",spend:"Over $300K / month",model:"Custom",desc:"Tailored scope, cadence and delivery — defined case by case.",media:!0},{id:"none",name:"No Media Management Needed",en:"No Media Management Needed",bestFor:"In-house media team, or no managed media needed yet.",spend:"Not applicable",model:"Other services only",desc:"Pick other services separately: creative, influencer, social and SEO / GEO.",media:!1}],
+      _CP = [{id:"accounts",num:"01",name:"Accounts",en:"Accounts",summary:"Media account setup and permissions — the prerequisite for all media buying.",industries:["app","ecommerce"],products:[{id:"accounts01",name:"Single-Platform Account Setup",unit:"Account / one-off"},{id:"accounts02",name:"Multi-Platform Account Package",unit:"Project / one-off"}],hasPlatforms:!0},{id:"creative",num:"02",name:"Creative Production",en:"Creative Production",summary:"Continuous creative production across platforms and markets.",industries:["app","ecommerce"],products:[{id:"creative01",name:"Creative Factory Lite",unit:"5 Videos + 15 Images / Month",desc:"5 videos + 15 images per month"},{id:"creative02",name:"Creative Factory Growth",unit:"12 Videos + 40 Images / Month",desc:"12 videos + 40 images per month"},{id:"creative03",name:"Creative Factory Scale",unit:"30 Videos + 100 Images / Month",desc:"30 videos + 100 images per month"},{id:"custom",name:"Custom Creative Services",unit:"Custom Creative Services",desc:"Tell us what you need"}],creativeGroup:!0},{id:"influencer",num:"03",name:"Influencer Marketing",en:"Influencer Marketing",summary:"Creator partnerships that reach your target audience.",industries:["app","ecommerce"],products:[{id:"influencer01",name:"Influencer Campaign",unit:"Project"}],inline:!0},{id:"social",num:"04",name:"Social Media Operations",en:"Social Media Operations",summary:"Ongoing operation of one official Instagram, TikTok or YouTube account.",industries:["app","ecommerce"],products:[{id:"social01",name:"Account Social Media Operations",unit:"Account / month"}],inline:!0},{id:"commerce",num:"05",name:"E-commerce Operations",en:"E-commerce Operations",summary:"Store build, conversion and retention — turning traffic into orders.",industries:["ecommerce"],products:[{id:"commerce01",name:"Shopify Standard Store",unit:"Project"},{id:"commerce02",name:"Shopify Brand Growth Store",unit:"Project"},{id:"commerce03",name:"Shopify Custom Enterprise Store",unit:"From / project"},{id:"commerce04",name:"TikTok Shop / DTC store operations",unit:"Month"},{id:"commerce05",name:"E-commerce Operations - Starter",unit:"Month"},{id:"commerce06",name:"E-commerce Operations - Growth",unit:"Month"},{id:"commerce07",name:"E-commerce Operations - Scale",unit:"Month"},{id:"commerce08",name:"EDM and Email Marketing",unit:"Month"},{id:"commerce09",name:"Impact Affiliate Management",unit:"Month"}]},{id:"search",num:"06",name:"SEO / GEO",en:"SEO / GEO",summary:"Improve visibility across search and AI discovery. We optimise your content — third-party outcomes are not guaranteed.",industries:["app","ecommerce"],products:[{id:"search01",name:"AI Search Visibility Optimization(GEO)",unit:"Project / 6 months"}]}];
     let _MEDIA = [
       { id: "google", name: "Google Ads", zh: "Google Ads" },
       { id: "meta", name: "Meta Ads", zh: "Meta Ads" },
@@ -361,7 +361,7 @@
             (0, t.jsxs)("div", { children: [
               (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "YOUR GROWTH PLAN" }),
               (0, t.jsx)("h2", { className: "mt-2 text-[20px] font-medium leading-snug text-navy sm:text-[23px]", children: "Your plan is ready." }),
-              (0, t.jsx)("p", { className: "mt-1.5 text-[13px] leading-relaxed text-steel", children: "Your plan is ready. Let's discuss the execution scope, market approach and investment scale that fit your business." }),
+              (0, t.jsx)("p", { className: "mt-1.5 text-[13px] leading-relaxed text-steel", children: "Let's discuss the execution scope, market approach and investment scale that fit your business." }),
             ] }),
             (0, t.jsx)("button", { type: "button", onClick: s, "aria-label": "Close", className: "grid size-8 shrink-0 place-items-center bg-mist text-[18px] leading-none text-steel transition-colors hover:bg-hairline hover:text-navy", children: "×" }),
           ] }),
@@ -382,7 +382,7 @@
                 (0, t.jsxs)("dt", { className: "type-mono-label text-steel/70", children: ["Investment Scale ", (0, t.jsx)("span", { className: "normal-case tracking-normal", children: " (optional)" })] }),
                 (0, t.jsxs)("dd", { className: "mt-2", children: [
                   (0, t.jsxs)("select", { value: n ?? "", onChange: (e) => i(e.target.value), className: (0, h.cn)(N, "text-[13.5px]"), children: [(0, t.jsx)("option", { value: "", children: "Not sure yet / discuss with consultant" }), d.map((e) => (0, t.jsx)("option", { value: e.id, children: e.label }, e.id))] }),
-                  (0, t.jsx)("p", { className: "mt-2 text-[11.5px] leading-relaxed text-steel", children: "This is your current spend level, used by the consultant to scope the plan - not a service quote." }),
+                  (0, t.jsx)("p", { className: "mt-2 text-[11.5px] leading-relaxed text-steel", children: "Current spend level, used to scope the plan — not a quote." }),
                 ] }),
               ] }),
               (0, t.jsxs)("div", { className: "px-4 py-3.5 sm:px-5", children: [
@@ -392,23 +392,23 @@
             ] }),
             (0, t.jsxs)("form", { onSubmit: (e) => { var t, a, s, n, i2, r2; e.preventDefault(); let d2 = e.currentTarget, c2 = new FormData(d2); for (let e of Array.from(d2.querySelectorAll("[required]"))) if (!e.value.trim()) { (e.setCustomValidity("Please fill in this field"), e.reportValidity(), e.addEventListener("input", () => e.setCustomValidity(""), { once: !0 })); return; } let o2 = Object.fromEntries(Array.from(c2.entries()).map(([e, t]) => [e, String(t).trim()])); (p({ kind: "info", text: "Your plan has been compiled into a request form, but not sent - this prototype is not connected to a backend. Please download and send it to your AdsMarch consultant." }), (t = l), (a = o2), (s = { name: "Name", company: "Company", email: "Email", region: "Country / Region", notes: "Notes" }), (n = new Blob(["\uFEFF", ["AdsMarch · Overseas Growth Plan Request", "(Prototype generated, not sent. Please send this file to your consultant.)", "", "Generated: " + new Date().toLocaleString(), "", "-- Growth Engine --", "Growth Engine: " + (t.growthEngine ? t.growthEngine.name + "（" + t.growthEngine.en + ")" : "Not selected"), "Growth Direction: " + (t.growthDirection ? t.growthDirection.name + "（" + t.growthDirection.en + ")" : "Not selected"), "-- Growth Plan --", "Growth Plan: " + (t.growthPlan ? t.growthPlan.name + "（" + t.growthPlan.en + ")" : "Not selected"), "Managed Media Platforms: " + (t.managedMedia && t.managedMedia.length ? t.managedMedia.join("、") : "Not selected") + (t.otherManagedMedia ? " (Other: " + t.otherManagedMedia + ")" : ""), "-- Markets --", "Home Market: " + (t.homeMarket ? t.homeMarket.name : "Not selected"), "Target Markets: " + (t.targetCountries && t.targetCountries.length ? t.targetCountries.join("、") : (t.targetMarket ? t.targetMarket.name + "（" + t.targetMarket.en + ")" : "Not selected")), "Target Regions: " + (t.targetRegions && t.targetRegions.length ? t.targetRegions.join("、") : "Not selected"), "Business Type: " + (t.businessType ? t.businessType.name + "（" + t.businessType.en + ")" : "Not selected"), "Investment Scale: " + (t.scaleBand ?? "Not sure"), "", "Selected capabilities (" + t.capabilities.length + "):", ...t.capabilities.map((e, t2) => "  " + String(t2 + 1).padStart(2, "0") + " [" + e.category + "] " + e.product), "Account Service Platforms: " + (t.accountMedia && t.accountMedia.length ? t.accountMedia.join("、") : "Not selected") + (t.otherAccountMedia ? " (Other: " + t.otherAccountMedia + ")" : ""), "Creative Package: " + (t.creativePackage || "Not selected"), "Custom Creative Requirements: " + (t.customCreative || "Not provided"), "", "-- Contact --", ...Object.entries(a).filter(([, e]) => e).map(([e, t2]) => (s[e] ?? e) + "：" + t2), "", "Status: not sent. Please send this request to your AdsMarch consultant."].join("\n")], { type: "text/plain;charset=utf-8" })), (i2 = URL.createObjectURL(n)), ((r2 = document.createElement("a")).href = i2), (r2.download = "AdsMarch-Growth-Plan-Request.txt"), r2.click(), setTimeout(() => URL.revokeObjectURL(i2), 1e3)); }, className: "mt-8", children: [
               (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Request a Tailored Proposal" }),
-              (0, t.jsx)("p", { className: "mt-2 text-[13px] leading-relaxed text-steel", children: "Target markets and selected capabilities are carried over automatically - no need to re-enter." }),
+              (0, t.jsx)("p", { className: "mt-2 text-[13px] leading-relaxed text-steel", children: "Your markets and services carry over automatically." }),
               (0, t.jsxs)("div", { className: "mt-5 grid gap-x-6 gap-y-5 sm:grid-cols-2", children: [
                 (0, t.jsx)(S, { label: "Name", name: "name", required: !0, autoComplete: "name", placeholder: "Your name" }),
                 (0, t.jsx)(S, { label: "Company", name: "company", required: !0, autoComplete: "organization", placeholder: "Full company name" }),
                 (0, t.jsx)(S, { label: "Work Email", name: "email", type: "email", required: !0, autoComplete: "email", placeholder: "name@company.com" }),
                 (0, t.jsx)(S, { label: "Country / Region", name: "region", required: !0, autoComplete: "country-name", placeholder: "e.g. China / Singapore" }),
-                (0, t.jsxs)("label", { className: "block sm:col-span-2", children: [(0, t.jsx)("span", { className: "type-mono-label block text-steel/70", children: "Additional Notes" }), (0, t.jsx)("textarea", { name: "notes", rows: 4, maxLength: 3e3, placeholder: "e.g. product link, expected launch time, existing ad channels, and questions for the consultant.", className: (0, h.cn)(N, "mt-2 resize-y") })] }),
+                (0, t.jsxs)("label", { className: "block sm:col-span-2", children: [(0, t.jsx)("span", { className: "type-mono-label block text-steel/70", children: "Additional Notes" }), (0, t.jsx)("textarea", { name: "notes", rows: 4, maxLength: 3e3, placeholder: "Product link, launch timeline, existing channels, or questions.", className: (0, h.cn)(N, "mt-2 resize-y") })] }),
               ] }),
               (0, t.jsxs)("div", { className: "mt-6 border border-hairline bg-mist/60 p-4 sm:p-5", children: [
-                (0, t.jsx)("p", { className: "text-[13.5px] font-medium text-navy", children: "Save My Growth Plan" }),
-                (0, t.jsx)("p", { className: "mt-1.5 text-[12.5px] leading-relaxed text-steel", children: "Save your plan and continue later. Enter your email to save the current plan and restore it next time." }),
+                (0, t.jsx)("p", { className: "text-[13.5px] font-medium text-navy", children: "Save My Plan" }),
+                (0, t.jsx)("p", { className: "mt-1.5 text-[12.5px] leading-relaxed text-steel", children: "Save and continue later. Enter your email to restore this plan next time." }),
                 (0, t.jsxs)("div", { className: "mt-3.5 flex flex-col gap-2.5 sm:flex-row", children: [(0, t.jsx)("input", { type: "email", value: r, onChange: (e) => c(e.target.value), placeholder: "name@company.com", "aria-label": "Email to save the plan", className: (0, h.cn)(N, "sm:flex-1") }), (0, t.jsx)("button", { type: "button", onClick: o, disabled: !r.trim(), className: "min-h-11 shrink-0 border border-navy/25 px-5 text-[13.5px] text-navy transition-colors hover:border-navy/60 disabled:cursor-not-allowed disabled:opacity-40", children: "Save Plan" })] }),
-                (0, t.jsx)("p", { className: "mt-2.5 text-[11.5px] leading-relaxed text-steel", children: "The plan is saved in this browser. It will be lost if you switch devices or clear browser data - it is not uploaded to any server." }),
+                (0, t.jsx)("p", { className: "mt-2.5 text-[11.5px] leading-relaxed text-steel", children: "Saved in this browser only. Switching devices or clearing browser data will lose it." }),
               ] }),
               (0, t.jsxs)("div", { className: "mt-6 flex flex-col gap-3 sm:flex-row sm:items-center", children: [
                 (0, t.jsxs)("button", { type: "submit", disabled: u, className: "group inline-flex min-h-12 items-center justify-center gap-2 bg-navy px-6 text-[14px] font-medium text-white transition-colors hover:bg-navy-2 disabled:opacity-60", children: [u ? "Submitting…" : "Request a Tailored Proposal", (0, t.jsx)("span", { "aria-hidden": "true", className: "transition-transform group-hover:translate-x-0.5", children: "↗" })] }),
-                (0, t.jsx)("button", { type: "button", onClick: s, className: "inline-flex min-h-12 items-center justify-center border border-navy/25 px-6 text-[13.5px] text-navy transition-colors hover:border-navy/60", children: "Talk to a Growth Consultant" }),
+                (0, t.jsx)("button", { type: "button", onClick: s, className: "inline-flex min-h-12 items-center justify-center border border-navy/25 px-6 text-[13.5px] text-navy transition-colors hover:border-navy/60", children: "Talk to a Growth Expert" }),
               ] }),
               "idle" !== x.kind ? (0, t.jsx)("p", { role: "status", "aria-live": "polite", className: (0, h.cn)("mt-4 border-l-2 py-1 pl-3 text-[12.5px] leading-relaxed", "error" === x.kind ? "border-navy text-navy" : "border-azure text-steel"), children: x.text }) : null,
               (0, t.jsx)("p", { className: "mt-4 text-[11.5px] leading-relaxed text-steel", children: "The information you submit is used only for this service consultation. This prototype is not connected to a backend; information is not uploaded or retained." }),
@@ -838,11 +838,11 @@
                   children: [
                     (0, t.jsx)("p", {
                       className: "text-[14px] leading-relaxed text-navy",
-                      children: "Your growth plan is empty.",
+                      children: "Your plan starts here.",
                     }),
                     (0, t.jsx)("p", {
                       className: "mt-2 text-[13px] leading-relaxed text-steel",
-                      children: "Choose your growth plan, target market and required capabilities above and your plan is generated here in real time.",
+                      children: "Choose a plan, market and services to build it.",
                     }),
                   ],
                 })
@@ -891,7 +891,7 @@
                               : null,
                             e.growthGoals && e.growthGoals.length
                               ? (0, t.jsxs)(v, {
-                                  label: e.growthGoals.length > 1 ? "Growth Goals" : "Growth Goal",
+                                  label: e.growthGoals.length > 1 ? "Growth Engines" : "Growth Engine",
                                   children: [
                                     (0, t.jsx)("span", {
                                       className: "text-navy",
@@ -975,7 +975,7 @@
                             })
                           : (0, t.jsx)("p", {
                               className: "mt-3 text-[13px] leading-relaxed text-steel",
-                              children: "No capabilities selected yet. Start from the recommendations above.",
+                              children: "Nothing selected yet — start from the recommendations above.",
                             }),
                       ],
                     }),
@@ -998,17 +998,17 @@
                 disabled: 0 === i,
                 className:
                   "mt-5 flex min-h-12 w-full items-center justify-center gap-2 bg-navy px-5 text-[14px] font-medium text-white transition-colors hover:bg-navy-2 disabled:cursor-not-allowed disabled:opacity-40",
-                children: ["Review My Growth Plan", (0, t.jsx)("span", { "aria-hidden": "true", children: "→" })],
+                children: ["Review My Plan", (0, t.jsx)("span", { "aria-hidden": "true", children: "→" })],
               }),
               (0, t.jsx)("a", {
                 href: "/adsmarch-global-en/contact",
                 className:
                   "mt-2.5 flex min-h-11 w-full items-center justify-center border border-navy/25 px-5 text-[13.5px] text-navy transition-colors hover:border-navy/60",
-                children: "Talk to a Growth Consultant",
+                children: "Talk to a Growth Expert",
               }),
               (0, t.jsx)("p", {
                 className: "mt-4 text-[11.5px] leading-relaxed text-steel",
-                children: "No online payment. A consultant will confirm the service scope, market approach and investment level with you, then issue a tailored proposal.",
+                children: "No online payment. A consultant confirms scope, market and investment before sending a tailored proposal.",
               }),
             ],
           }),
@@ -1326,7 +1326,7 @@
                         children: [
                           (0, t.jsx)("p", {
                             className: "text-[13.5px] font-medium text-navy",
-                            children: "Save My Growth Plan",
+                            children: "Save My Plan",
                           }),
                           (0, t.jsx)("p", {
                             className: "mt-1.5 text-[12.5px] leading-relaxed text-steel",
@@ -1382,7 +1382,7 @@
                             onClick: s,
                             className:
                               "inline-flex min-h-12 items-center justify-center border border-navy/25 px-6 text-[13.5px] text-navy transition-colors hover:border-navy/60",
-                            children: "Talk to a Growth Consultant",
+                            children: "Talk to a Growth Expert",
                           }),
                         ],
                       }),
@@ -1450,14 +1450,14 @@
         { id: "engine", num: "01", title: "Choose Your Growth Engine", en: "Choose Your Growth Engine" },
         { id: "plan", num: "02", title: "Choose Your Growth Plan", en: "Choose Your Growth Plan" },
         { id: "market", num: "03", title: "Select Your Market", en: "Select Your Market" },
-        { id: "capabilities", num: "04", title: "Select Capabilities", en: "Select Capabilities" },
+        { id: "capabilities", num: "04", title: "Select Your Capabilities", en: "Select Your Capabilities" },
       ],
       _LK = [
         {
           id: "app",
           name: "APP GROWTH",
           en: "APP GROWTH",
-          desc: "From first install to sustainable growth: store page, activation, retention and payback.",
+          desc: "From user acquisition to sustainable growth: store page, activation, retention and payback.",
           goal: "grow-app",
           goals: ["grow-app", "acquire-customers", "scale-market", "global-brand"],
           href: "/adsmarch-global-en/app-growth",
@@ -1471,7 +1471,7 @@
           id: "ecommerce",
           name: "E-COMMERCE GROWTH",
           en: "E-COMMERCE GROWTH",
-          desc: "From market entry to repeat purchase at scale: site, conversion, retention and scale.",
+          desc: "From market entry to repeat purchase at scale: traffic, conversion, revenue and retention.",
           goal: "grow-ecommerce",
           goals: ["grow-ecommerce", "acquire-customers", "scale-market", "global-brand", "enter-market"],
           href: "/adsmarch-global-en/ecommerce-growth",
@@ -1740,7 +1740,7 @@
                             num: "01",
                             title: "Choose Your Growth Engine",
                             en: "Choose Your Growth Engine",
-                            desc: "Start by choosing a path, then a growth direction. Both paths share the same AI + Expert capability system, but their growth stages, core metrics and recommended combinations differ.",
+                            desc: "Select your business and growth direction. Both paths share the same AI + Expert system; growth stages and recommendations differ.",
                             done: ee.includes("engine"),
                             children: [
                               (0, t.jsx)(b, {
@@ -1824,9 +1824,9 @@
                           (0, t.jsx)($, {
                             id: "plan",
                             num: "02",
-                            title: "Which plan fits your current stage?",
+                            title: "Choose Your Growth Plan",
                             en: "Choose Your Growth Plan",
-                            desc: "Different growth stages call for different service models and plan structures. The first five are managed-media packages; the sixth is for clients who do not need managed media but want to buy other services separately.",
+                            desc: "Choose the plan that fits your growth stage. Plans 1–5 include managed media; plan 6 is for other services only.",
                             done: ee.includes("plan"),
                             children: [
                               (0, t.jsx)(_pg, {
@@ -1844,7 +1844,7 @@
                                       }),
                                       (0, t.jsx)("p", {
                                         className: "mt-1.5 text-[12.5px] text-steel",
-                                        children: "Select the platforms you want us to manage your advertising on (multi-select).",
+                                        children: "Select the platforms we'll manage (multi-select).",
                                       }),
                                       (0, t.jsx)("div", {
                                         className: "mt-3.5 grid gap-2.5 sm:grid-cols-2",
@@ -1897,18 +1897,18 @@
                           (0, t.jsx)($, {
                             id: "market",
                             num: "03",
-                            title: _dir === "international" ? "Which markets are you targeting?" : "Where is your home market?",
-                            en: _dir === "international" ? "Which markets are you targeting?" : "Where is your home market?",
+                            title: _dir === "international" ? "Select Your Market" : "Select Your Market",
+                            en: _dir === "international" ? "Select Your Market" : "Select Your Market",
                             desc: _dir === "international"
-                              ? "First confirm where your business is based, then select target markets (multi-select)."
-                              : "Select your home market (searchable).",
+                              ? "Confirm your business base, then select target markets (multi-select)."
+                              : "Select your home market.",
                             done: ee.includes("market"),
                             children: _dir === "international"
                               ? [
                                   (0, t.jsxs)("div", {
                                     className: "border border-hairline bg-white p-5 sm:p-6",
                                     children: [
-                                      (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Where Is Your Business Based?" }),
+                                      (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Your Business Base" }),
                                       (0, t.jsx)(_sel, {
                                         value: _home,
                                         onChange: _shome,
@@ -1939,7 +1939,7 @@
                                                 "inline-flex items-center gap-1.5 border px-3 py-2 text-[12.5px] transition-colors",
                                                 on ? "border-azure bg-frost text-navy" : "border-hairline bg-white text-navy hover:border-azure/40",
                                               ),
-                                              children: [r.zh + " " + r.en],
+                                              children: [r.en],
                                             },
                                             r.id,
                                           );
@@ -1996,7 +1996,7 @@
                                       _tcts.includes(_home) && _home
                                         ? (0, t.jsx)("p", {
                                             className: "mt-3 border-l-2 border-brass pl-3 text-[12px] text-steel",
-                                            children: "This is your home market. Please confirm whether you intend to target it.",
+                                            children: "This is your home market — confirm if you want to target it.",
                                           })
                                         : null,
                                     ],
@@ -2006,10 +2006,10 @@
                                   (0, t.jsx)("div", {
                                     className: "border border-hairline bg-white p-5 sm:p-6",
                                     children: [
-                                      (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Where Is Your Home Market?" }),
+                                      (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Home Market" }),
                                       (0, t.jsx)(_sel, { value: _home, onChange: _shome, placeholder: "Search and select a country / region" }),
                                       _homeObj
-                                        ? (0, t.jsx)("p", { className: "mt-3 text-[13px] text-navy", children: "Selected: " + _homeObj.z + "（" + _homeObj.n + "）" })
+                                        ? (0, t.jsx)("p", { className: "mt-3 text-[13px] text-navy", children: "Selected: " + _homeObj.n })
                                         : null,
                                     ],
                                   }),
@@ -2018,9 +2018,9 @@
                           (0, t.jsx)($, {
                             id: "capabilities",
                             num: "04",
-                            title: "Which capabilities belong in your plan?",
-                            en: "Which capabilities belong in your plan?",
-                            desc: "Expand by service category, tick specific products, and combine freely across categories. The judgement is left to you and your consultant.",
+                            title: "Select Your Capabilities",
+                            en: "Select Your Capabilities",
+                            desc: "Select the services you need; combine freely across categories.",
                             done: ee.includes("capabilities"),
                             children: (0, t.jsx)(_g2, {
                               goalIds: e,
@@ -2040,7 +2040,7 @@
                           (0, t.jsx)("p", {
                             className: "mt-10 border-l-2 border-azure pl-4 text-[12.5px] leading-relaxed text-steel",
                             children:
-                              "No fixed pricing is shown on this page. AdsMarch provides overseas growth services rather than standard products - the final quote depends on target market, industry, spend scale, creative needs and service period. Tell us clearly what you want, and the consultant will produce a tailored proposal.",
+                              "No fixed pricing. The quote depends on target market, industry, spend, creative needs and service period — your consultant will send a tailored proposal.",
                           }),
                         ],
                       }),
@@ -2094,7 +2094,7 @@
                         disabled: 0 === Z.capabilities.length && !_isNone,
                         className:
                           "min-h-11 shrink-0 bg-navy px-5 text-[13.5px] font-medium text-white transition-colors hover:bg-navy-2 disabled:opacity-40",
-                        children: "Review Plan",
+                        children: "Review My Plan",
                       }),
                     ],
                   }),
