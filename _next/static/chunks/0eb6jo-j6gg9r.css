@@ -770,6 +770,16 @@ main > section:nth-of-type(1)[class~="bg-navy"] :is([class~="text-white/60"],[cl
 main > section:nth-of-type(1)[class~="pb-16"] :is([class~="border-paper/15"],[class~="border-paper/12"]),
 main > section:nth-of-type(1)[class~="bg-navy"] :is([class~="border-white/15"],[class~="border-white/12"]) { border-color: var(--amd-border); }
 
+/* ---------- 12b. Planner Hero text contrast fix (bg-navy inner-page Hero only) ----------
+   The V2 light-hero treatment turns inner-page Heroes light, but the planner Hero
+   still carries text-white opacity variants (/40 /45 /55 /75) that are illegible
+   on the light gradient. Fill only these variants to dark tokens. */
+main > section:nth-of-type(1)[class~="bg-navy"] :is([class~="text-white/75"],[class~="text-white/80"]) { color: var(--amd-text-1); }
+main > section:nth-of-type(1)[class~="bg-navy"] :is([class~="text-white/55"],[class~="text-white/50"]) { color: var(--amd-text-2); }
+main > section:nth-of-type(1)[class~="bg-navy"] [class~="text-white/45"] { color: var(--amd-text-3); }
+main > section:nth-of-type(1)[class~="bg-navy"] [class~="text-white/40"] { color: var(--amd-primary); }
+main > section:nth-of-type(1)[class~="bg-navy"] [class~="text-white/40"]:hover { color: var(--amd-primary-hover); }
+
 /* ---------------------------------------------------------------
    13. INNER PAGE SECTION 2 — three DIFFERENT structures live here and
    they must not share one rule (verified by runtime audit):
