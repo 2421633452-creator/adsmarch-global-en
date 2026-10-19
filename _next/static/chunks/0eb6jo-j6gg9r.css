@@ -1361,3 +1361,137 @@ main > section:nth-of-type(1):has([class*="88svh"]) dl { margin-top: 0; }
   }
 }
 /* ==== HERO-REFINE-END ==== */
+
+/* ==== V3.3-CAPABILITY-UI-BEGIN ==== */
+/* Two-level capability picker: category cards -> category dialog. Scoped to .amcap-* only. */
+.amcap-card {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.amcap-card:hover {
+  background-color: #f4f9ff;
+}
+.amcap-card--on:hover {
+  background-color: #e2eefd;
+}
+.amcap-card:hover .amcap-tick {
+  border-color: color-mix(in srgb, var(--color-azure) 55%, transparent);
+}
+.amcap-card--on:hover .amcap-tick {
+  border-color: var(--color-azure);
+}
+.amcap-card:focus-visible {
+  outline: 2px solid var(--color-azure);
+  outline-offset: -2px;
+}
+.amcap-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  transition: color 0.18s ease;
+}
+.amcap-arrow {
+  display: inline-block;
+  transition: transform 0.18s ease;
+}
+.amcap-card:hover .amcap-cta {
+  color: var(--color-navy);
+}
+.amcap-card:hover .amcap-arrow {
+  transform: translateX(3px);
+}
+.amcap-card:active {
+  transform: translateY(1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .amcap-card:active {
+    transform: none;
+  }
+}
+.amcap-badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-azure) 32%, transparent);
+  background: #fff;
+  color: var(--color-azure);
+  padding: 3px 8px;
+  font-size: 10.5px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.amcap-dialog {
+  width: min(720px, calc(100% - 1.5rem));
+  max-width: 720px;
+  max-height: min(88dvh, 900px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  color: var(--color-navy);
+  overflow: hidden;
+  box-shadow: 0 24px 80px -24px rgba(11, 27, 51, 0.45);
+}
+.amcap-dialog::backdrop {
+  background: color-mix(in srgb, var(--color-navy) 72%, transparent);
+  backdrop-filter: blur(3px);
+}
+.amcap-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.amcap-actions {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .amcap-actions {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+.amcap-cancel:hover {
+  border-color: rgba(23, 73, 196, 0.6);
+}
+.amcap-prod:hover {
+  color: var(--color-navy);
+}
+.amcap-prod:focus-visible {
+  outline: 2px solid var(--color-azure);
+  outline-offset: -2px;
+}
+.amcap-modal-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+@media (max-width: 639px) {
+  .amcap-dialog {
+    width: 100%;
+    max-width: none;
+    max-height: 92dvh;
+    margin: auto auto 0;
+    border-radius: 14px 14px 0 0;
+  }
+  .amcap-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .amcap-arrow,
+  .amcap-cta {
+    transition: none;
+  }
+  .amcap-card:hover .amcap-arrow {
+    transform: none;
+  }
+}
+/* ==== V3.3-CAPABILITY-UI-END ==== */

@@ -436,48 +436,21 @@
       });
     }
 
-    function _g2({ goalIds: e, selected: l, onToggle: n, onSelectAll: i, accountMedia: am, setAccountMedia: sam, otherAccountMedia: oam, setOtherAccountMedia: soam, creativePackage: cp, setCreativePackage: scp, customCreative: cr, setCustomCreative: scr }) {
-      return (0, t.jsx)("div", {
-        className: "grid gap-px bg-hairline md:grid-cols-2",
-        children: _CP.map((a, s) => {
-          let rec = o(a.id, e);
-          let isCreative = a.id === "creative";
-          let isAccounts = a.id === "accounts";
-          let inline = a.inline === !0;
-          return (0, t.jsx)(
-            _j2,
-            {
-              cat: a,
-              index: s,
-              selected: l[a.id] || [],
-              onToggle: n,
-              onSelectAll: i,
-              recommendation: rec,
-              inline: inline,
-              isCreative: isCreative,
-              isAccounts: isAccounts,
-              accountMedia: am,
-              setAccountMedia: sam,
-              otherAccountMedia: oam,
-              setOtherAccountMedia: soam,
-              creativePackage: cp,
-              setCreativePackage: scp,
-              customCreative: cr,
-              setCustomCreative: scr,
-            },
-            a.id,
-          );
-        }),
-      });
+    function _capStat(cat, sel, am, cp, cr) {
+      if (cat.id === "accounts") return (am || []).filter(Boolean).length;
+      if (cat.id === "creative") return (cp ? 1 : 0) + ((cr || "").trim() ? 1 : 0);
+      return (sel[cat.id] || []).filter(function (id) {
+        return (cat.products || []).some(function (p) { return p.id === id && !p.hidden; });
+      }).length;
     }
 
-    function _j2({ cat: e, index: l, selected: n, onToggle: i, onSelectAll: r, recommendation: d, inline: inl, isCreative: isCr, isAccounts: isAc, accountMedia: am, setAccountMedia: sam, otherAccountMedia: oam, setOtherAccountMedia: soam, creativePackage: cp, setCreativePackage: scp, customCreative: cr, setCustomCreative: scr }) {
-      let [o, m] = (0, a.useState)(inl ? !0 : !1);
-      let prods = (e.products || []).filter((p) => !p.hidden),
-        u = prods.length,
-        x = u > 0 && n.filter((id) => prods.some((p) => p.id === id)).length >= u;
-      return (0, t.jsxs)("article", {
-        className: (0, h.cn)("relative flex flex-col p-5 transition-colors sm:p-7", n.length ? "bg-frost" : "bg-white"),
+    function _CAPCARD({ cat: e, index: l, count: n, checked: k, onOpen: i }) {
+      let unit = e.id === "accounts" ? "Platform" : "Service";
+      return (0, t.jsxs)("button", {
+        type: "button",
+        onClick: () => i(e.id),
+        "aria-haspopup": "dialog",
+        className: (0, h.cn)("amcap-card group relative flex w-full flex-col p-5 text-left transition-colors sm:p-7", k ? "amcap-card--on bg-frost" : "bg-white"),
         children: [
           (0, t.jsxs)("div", {
             className: "flex items-start justify-between gap-4",
@@ -488,196 +461,267 @@
                   (0, t.jsxs)("div", {
                     className: "flex items-baseline gap-3",
                     children: [
-                      (0, t.jsx)("span", { className: (0, h.cn)("type-mono-label tabular-nums", n.length ? "text-azure" : "text-steel/60"), children: e.num }),
-                      (0, t.jsx)("h3", { className: "text-[17px] font-medium leading-snug text-navy", children: e.name }),
+                      (0, t.jsx)("span", { className: (0, h.cn)("type-mono-label tabular-nums", k ? "text-azure" : "text-steel/60"), children: e.num }),
+                      (0, t.jsx)("span", { className: "text-[17px] font-medium leading-snug text-navy", children: e.name }),
                     ],
                   }),
-                  (0, t.jsx)("p", { className: "type-mono-label mt-1.5 text-steel", children: e.en }),
+                  (e.en || "").trim().toUpperCase() !== (e.name || "").trim().toUpperCase()
+                    ? (0, t.jsx)("p", { className: "type-mono-label mt-1.5 text-steel", children: e.en })
+                    : null,
                 ],
               }),
-              "recommended" === d
-                ? (0, t.jsxs)("span", { className: "inline-flex shrink-0 items-center gap-1.5 pt-1 text-[11.5px] text-brass", children: [(0, t.jsx)("span", { "aria-hidden": "true", className: "size-1 rounded-full bg-brass" }), "Recommended"] })
-                : null,
+              (0, t.jsx)("span", {
+                "aria-hidden": "true",
+                className: (0, h.cn)(
+                  "amcap-tick ml-auto grid size-5 shrink-0 place-items-center border text-[11px] leading-none transition-colors",
+                  k ? "border-azure bg-azure text-white" : "border-hairline text-transparent group-hover:border-steel/40",
+                ),
+                children: "\u2713",
+              }),
             ],
           }),
           (0, t.jsx)("p", { className: "mt-4 text-[13.5px] leading-relaxed text-steel", children: e.summary }),
-          isAc
-            ? (0, t.jsxs)("div", {
-                className: "mt-5 border-t border-hairline pt-4",
+          (0, t.jsxs)("span", {
+            className: "amcap-cta mt-auto pt-5",
+            children: [
+              n > 0
+                ? (0, t.jsx)("span", {
+                    className: "text-[12px] font-medium tabular-nums text-azure",
+                    children: n + " " + unit + (n > 1 ? "s" : "") + " Selected",
+                  })
+                : null,
+              (0, t.jsxs)("span", {
+                className: "ml-auto inline-flex items-center gap-2 text-[12.5px] font-medium text-azure",
                 children: [
-                  (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Select Advertising Platforms" }),
-                  (0, t.jsx)("div", {
-                    className: "mt-3 grid gap-2 sm:grid-cols-2",
-                    children: _MEDIA.map((m2) => {
-                      let on = am.includes(m2.id);
-                      return (0, t.jsxs)(
-                        "button",
-                        {
-                          type: "button",
-                          "aria-pressed": on,
-                          onClick: () => sam(on ? am.filter((x) => x !== m2.id) : [...am, m2.id]),
-                          className: (0, h.cn)("flex items-center gap-2 border p-2.5 text-left transition-colors", on ? "border-azure bg-white" : "border-hairline bg-white hover:border-azure/40"),
-                          children: [
-                            (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none", on ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "✓" }),
-                            (0, t.jsx)("span", { className: "text-[12.5px] text-navy", children: m2.name }),
-                          ],
-                        },
-                        m2.id,
-                      );
-                    }),
-                  }),
-                  am.includes("other")
-                    ? (0, t.jsxs)("div", {
-                        className: "mt-2.5",
-                        children: [
-                          (0, t.jsx)("span", { className: "type-mono-label block text-steel/70", children: "Please specify the platform(s)" }),
-                          (0, t.jsx)("input", { type: "text", value: oam, onChange: (ev) => soam(ev.target.value), maxLength: 200, placeholder: "Please specify the advertising platform(s). Comma-separated", className: "mt-2 w-full border border-hairline bg-white px-3 py-2.5 text-[13px] text-navy placeholder:text-steel/50 focus:border-azure focus:outline-none" }),
-                        ],
-                      })
-                    : null,
+                  n ? "Edit Selection" : "Explore Services",
+                  (0, t.jsx)("span", { "aria-hidden": "true", className: "amcap-arrow", children: "\u2192" }),
                 ],
-              })
-            : null,
-          isCr
-            ? (0, t.jsxs)("div", {
-                className: "mt-5 border-t border-hairline pt-4",
-                children: [
-                  (0, t.jsx)("p", { className: "type-mono-label text-steel/70", children: "Creative Packages" }),
-                  (0, t.jsx)("div", {
-                    className: "mt-3 grid gap-2 sm:grid-cols-2",
-                    children: prods.map((pr) => {
-                      let on = cp === pr.id;
-                      return (0, t.jsxs)(
-                        "button",
-                        {
-                          type: "button",
-                          "aria-pressed": on,
-                          onClick: () => scp(on ? null : pr.id),
-                          className: (0, h.cn)("flex flex-col items-start gap-1 border p-3 text-left transition-colors", on ? "border-azure bg-white" : "border-hairline bg-white hover:border-azure/40"),
-                          children: [
-                            (0, t.jsxs)("span", {
-                              className: "flex w-full items-center gap-2",
-                              children: [
-                                (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none", on ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "✓" }),
-                                (0, t.jsx)("span", { className: "text-[13px] font-medium text-navy", children: pr.name }),
-                              ],
-                            }),
-                            (0, t.jsx)("span", { className: "text-[12px] text-steel", children: pr.unit }),
-                            pr.desc ? (0, t.jsx)("span", { className: "text-[11.5px] text-steel", children: pr.desc }) : null,
-                          ],
-                        },
-                        pr.id,
-                      );
+              }),
+            ],
+          }),
+          (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("absolute inset-y-0 left-0 w-0.5 transition-colors", k ? "bg-azure" : "bg-transparent") }),
+        ],
+      });
+    }
+
+    function _CAPMODAL({ cat: e, draft: d, setDraft: sd, onCancel: cx, onSave: sv, savedCount: sc }) {
+      let r = (0, a.useRef)(null),
+        opener = (0, a.useRef)(typeof document !== "undefined" ? document.activeElement : null);
+      (0, a.useEffect)(() => { let dlg = r.current; dlg && !dlg.open && dlg.showModal(); }, []);
+      (0, a.useEffect)(() => () => { let el = opener.current; el && el.focus && el.isConnected && el.focus(); }, []);
+      (0, a.useEffect)(() => {
+        let prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => { document.body.style.overflow = prev; };
+      }, []);
+      let prods = (e.products || []).filter(function (p) { return !p.hidden; }),
+        am = d.am || [],
+        cp = d.cp,
+        cr = d.cr || "",
+        sel = d.sel || [],
+        isAc = e.id === "accounts",
+        isCr = e.id === "creative",
+        allOn = prods.length > 0 && prods.every(function (p) { return sel.indexOf(p.id) >= 0; }),
+        toggleAm = (id) => sd(Object.assign({}, d, { am: am.indexOf(id) >= 0 ? am.filter((x) => x !== id) : am.concat([id]) })),
+        toggleProd = (id) => sd(Object.assign({}, d, { sel: sel.indexOf(id) >= 0 ? sel.filter((x) => x !== id) : sel.concat([id]) })),
+        body;
+      if (isAc) {
+        body = (0, t.jsxs)(t.Fragment, {
+          children: [
+            (0, t.jsx)("div", {
+              className: "grid gap-2 sm:grid-cols-2",
+              children: _MEDIA.map(function (m) {
+                let on = am.indexOf(m.id) >= 0;
+                return (0, t.jsxs)("button", {
+                  type: "button",
+                  "aria-pressed": on,
+                  onClick: () => toggleAm(m.id),
+                  className: (0, h.cn)("flex items-center gap-2 border p-2.5 text-left transition-colors", on ? "border-azure bg-white" : "border-hairline bg-white hover:border-azure/40"),
+                  children: [
+                    (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none", on ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "\u2713" }),
+                    (0, t.jsx)("span", { className: "text-[12.5px] text-navy", children: m.name }),
+                  ],
+                }, m.id);
+              }),
+            }),
+            am.indexOf("other") >= 0
+              ? (0, t.jsxs)("div", {
+                  className: "mt-3",
+                  children: [
+                    (0, t.jsx)("span", { className: "type-mono-label block text-steel/70", children: "Please specify the platform(s)" }),
+                    (0, t.jsx)("input", {
+                      type: "text",
+                      value: d.oam || "",
+                      onChange: (ev) => sd(Object.assign({}, d, { oam: ev.target.value })),
+                      maxLength: 200,
+                      placeholder: "Specify other platforms...",
+                      className: "mt-2 w-full border border-hairline bg-white px-3.5 py-3 text-[14px] text-navy placeholder:text-steel/50 focus:border-azure focus:outline-none",
                     }),
+                  ],
+                })
+              : null,
+          ],
+        });
+      } else if (isCr) {
+        body = (0, t.jsxs)(t.Fragment, {
+          children: [
+            (0, t.jsx)("div", {
+              className: "grid gap-2 sm:grid-cols-2",
+              children: prods.map(function (pr) {
+                let on = cp === pr.id;
+                return (0, t.jsxs)("button", {
+                  type: "button",
+                  "aria-pressed": on,
+                  onClick: () => sd(Object.assign({}, d, { cp: on ? null : pr.id })),
+                  className: (0, h.cn)("flex flex-col items-start gap-1 border p-3 text-left transition-colors", on ? "border-azure bg-white" : "border-hairline bg-white hover:border-azure/40"),
+                  children: [
+                    (0, t.jsxs)("span", {
+                      className: "flex w-full items-center gap-2",
+                      children: [
+                        (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none", on ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "\u2713" }),
+                        (0, t.jsx)("span", { className: "text-[13px] font-medium text-navy", children: pr.name }),
+                      ],
+                    }),
+                    (0, t.jsx)("span", { className: "text-[12px] text-steel", children: pr.unit }),
+                  ],
+                }, pr.id);
+              }),
+            }),
+            (0, t.jsxs)("div", {
+              className: "mt-4 border-t border-hairline pt-4",
+              children: [
+                (0, t.jsxs)("p", {
+                  className: "type-mono-label text-steel/70",
+                  children: ["Custom Creative Services", (0, t.jsx)("span", { className: "normal-case tracking-normal text-steel", children: " (Optional)" })],
+                }),
+                (0, t.jsx)("p", { className: "mt-1.5 text-[12px] leading-relaxed text-steel", children: "Tell us what you need. Leave this blank if the packages above are enough." }),
+                (0, t.jsx)("textarea", {
+                  value: cr,
+                  onChange: (ev) => sd(Object.assign({}, d, { cr: ev.target.value })),
+                  rows: 3,
+                  maxLength: 2000,
+                  placeholder: "Tell us about your creative needs...",
+                  "aria-label": "Custom creative requirements (optional)",
+                  className: "mt-2 w-full resize-y border border-hairline bg-white px-3.5 py-3 text-[14px] text-navy placeholder:text-steel/50 focus:border-azure focus:outline-none",
+                }),
+              ],
+            }),
+          ],
+        });
+      } else {
+        body = (0, t.jsxs)(t.Fragment, {
+          children: [
+            prods.length > 1
+              ? (0, t.jsx)("div", {
+                  className: "mb-3 flex items-center justify-end",
+                  children: (0, t.jsx)("button", {
+                    type: "button",
+                    onClick: () => sd(Object.assign({}, d, { sel: allOn ? [] : prods.map(function (p) { return p.id; }) })),
+                    className: "text-[12px] text-steel transition-colors hover:text-navy",
+                    children: allOn ? "Deselect all" : "Select all",
                   }),
-                  (0, t.jsxs)("div", {
-                    className: "mt-4 border-t border-hairline pt-4",
+                })
+              : null,
+            (0, t.jsx)("ul", {
+              className: "border-t border-hairline",
+              children: prods.map(function (pd) {
+                let on = sel.indexOf(pd.id) >= 0;
+                return (0, t.jsx)("li", {
+                  children: (0, t.jsxs)("button", {
+                    type: "button",
+                    "aria-pressed": on,
+                    onClick: () => toggleProd(pd.id),
+                    className: (0, h.cn)("amcap-prod flex w-full items-center gap-3 border-b border-hairline py-3 text-left transition-colors", on ? "text-navy" : "text-steel"),
                     children: [
-                      (0, t.jsxs)("p", {
-                        className: "type-mono-label text-steel/70",
-                        children: ["Custom Creative Services", (0, t.jsx)("span", { className: "normal-case tracking-normal text-steel", children: " (Optional)" })],
-                      }),
-                      (0, t.jsx)("p", { className: "mt-1.5 text-[12px] leading-relaxed text-steel", children: "Tell us what you need. Leave this blank if the packages above are enough." }),
-                      (0, t.jsx)("textarea", {
-                        value: cr,
-                        onChange: (ev) => scr(ev.target.value),
-                        rows: 3,
-                        maxLength: 2000,
-                        placeholder: "Tell us about your creative needs...",
-                        "aria-label": "Custom creative requirements (optional)",
-                        className: "mt-2 w-full resize-y border border-hairline bg-white px-3.5 py-3 text-[14px] text-navy placeholder:text-steel/50 focus:border-azure focus:outline-none",
-                      }),
+                      (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none transition-colors", on ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "\u2713" }),
+                      (0, t.jsx)("span", { className: "min-w-0 flex-1 text-[13.5px] leading-snug", children: pd.name }),
+                      (0, t.jsx)("span", { className: "type-mono-label shrink-0 text-steel/60", children: pd.unit }),
                     ],
                   }),
-                ],
-              })
-            : null,
-          !isCr && !isAc
-            ? inl
-              ? u > 0
-                ? (0, t.jsx)("ul", {
-                    className: "mt-4 border-t border-hairline pt-2",
-                    children: prods.map((a2) => {
-                      let s2 = n.includes(a2.id);
-                      return (0, t.jsx)(
-                        "li",
-                        {
-                          children: (0, t.jsxs)("button", {
-                            type: "button",
-                            "aria-pressed": s2,
-                            onClick: () => i(e.id, a2.id),
-                            className: (0, h.cn)("flex w-full items-center gap-3 border-b border-hairline py-2.5 text-left transition-colors last:border-b-0", s2 ? "text-navy" : "text-navy/75 hover:text-navy"),
-                            children: [
-                              (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none transition-colors", s2 ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "✓" }),
-                              (0, t.jsx)("span", { className: "min-w-0 flex-1 text-[13.5px] leading-snug", children: a2.name }),
-                              (0, t.jsx)("span", { className: "type-mono-label shrink-0 text-steel/60", children: a2.unit }),
-                            ],
-                          }),
-                        },
-                        a2.id,
-                      );
-                    }),
-                  })
-                : null
-              : u > 0
-                ? (0, t.jsxs)(t.Fragment, {
-                    children: [
-                      (0, t.jsxs)("div", {
-                        className: "mt-5 flex items-center justify-between gap-3 border-t border-hairline pt-4",
-                        children: [
-                          (0, t.jsxs)("button", {
-                            type: "button",
-                            "aria-expanded": o,
-                            onClick: () => m((e2) => !e2),
-                            className: "group inline-flex items-center gap-2 text-[12.5px] font-medium text-azure transition-colors hover:text-azure-soft",
-                            children: [
-                              o ? "Collapse" : "Expand products (" + u + ")",
-                              (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("transition-transform duration-200", o && "rotate-45"), children: "+" }),
-                            ],
-                          }),
-                          (0, t.jsx)("button", {
-                            type: "button",
-                            onClick: () => r(e.id),
-                            className: "shrink-0 text-[12px] text-steel transition-colors hover:text-navy",
-                            children: x ? "Deselect all" : "Select all",
-                          }),
-                        ],
-                      }),
-                      (0, t.jsx)("div", {
-                        className: (0, h.cn)("grid transition-[grid-template-rows,opacity] duration-300 motion-reduce:transition-none", o ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"),
-                        children: (0, t.jsx)("div", {
-                          className: "overflow-hidden",
-                          children: (0, t.jsx)("ul", {
-                            className: "mt-3.5 space-y-0 border-t border-hairline pt-1",
-                            children: prods.map((a2) => {
-                              let s2 = n.includes(a2.id);
-                              return (0, t.jsx)(
-                                "li",
-                                {
-                                  children: (0, t.jsxs)("button", {
-                                    type: "button",
-                                    "aria-pressed": s2,
-                                    onClick: () => i(e.id, a2.id),
-                                    className: (0, h.cn)("flex w-full items-center gap-3 border-b border-hairline py-2.5 text-left transition-colors last:border-b-0", s2 ? "text-navy" : "text-navy/75 hover:text-navy"),
-                                    children: [
-                                      (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("grid size-5 shrink-0 place-items-center border text-[11px] leading-none transition-colors", s2 ? "border-azure bg-azure text-white" : "border-hairline text-transparent"), children: "✓" }),
-                                      (0, t.jsx)("span", { className: "min-w-0 flex-1 text-[13.5px] leading-snug", children: a2.name }),
-                                      (0, t.jsx)("span", { className: "type-mono-label shrink-0 text-steel/60", children: a2.unit }),
-                                    ],
-                                  }),
-                                },
-                                a2.id,
-                              );
-                            }),
-                          }),
-                        }),
-                      }),
-                    ],
-                  })
-                : null
-            : null,
-          (0, t.jsx)("span", { "aria-hidden": "true", className: (0, h.cn)("absolute inset-y-0 left-0 w-0.5 transition-colors", n.length ? "bg-azure" : "bg-transparent") }),
-          (0, t.jsx)("span", { className: "sr-only", children: "Item " + (l + 1) + " of " + _CP.length + "; selected " + n.length + " / " + u }),
+                }, pd.id);
+              }),
+            }),
+          ],
+        });
+      }
+      return (0, t.jsx)("dialog", {
+        ref: r,
+        "aria-labelledby": "amcap-modal-title",
+        onCancel: cx,
+        onClose: cx,
+        onClick: (ev) => { if (ev.target === r.current) cx(); },
+        className: "amcap-dialog",
+        children: (0, t.jsxs)(t.Fragment, {
+          children: [
+            (0, t.jsxs)("div", {
+              className: "flex items-start justify-between gap-4 border-b border-hairline px-5 py-5 sm:px-8 sm:py-6",
+              children: [
+                (0, t.jsxs)("div", {
+                  className: "min-w-0",
+                  children: [
+                    (0, t.jsx)("p", { className: "type-mono-label text-steel/60", children: e.num + " \u00b7 " + e.en }),
+                    (0, t.jsx)("h2", { id: "amcap-modal-title", className: "mt-2 text-[20px] font-medium leading-snug text-navy sm:text-[23px]", children: e.name }),
+                    (0, t.jsx)("p", { className: "mt-1.5 text-[13px] leading-relaxed text-steel", children: isAc ? "Select the platforms you need account services for." : isCr ? "Choose the creative services you need." : e.summary }),
+                  ],
+                }),
+                (0, t.jsx)("button", {
+                  type: "button",
+                  onClick: cx,
+                  "aria-label": "Close",
+                  className: "grid size-8 shrink-0 place-items-center bg-mist text-[18px] leading-none text-steel transition-colors hover:bg-hairline hover:text-navy",
+                  children: "\u00d7",
+                }),
+              ],
+            }),
+            (0, t.jsx)("div", { className: "amcap-modal-body px-5 py-6 sm:px-8", children: body }),
+            (0, t.jsxs)("div", {
+              className: "amcap-actions border-t border-hairline px-5 py-4 sm:px-8",
+              children: [
+                (0, t.jsx)("button", {
+                  type: "button",
+                  onClick: cx,
+                  className: "amcap-cancel inline-flex min-h-11 items-center justify-center border border-navy/25 px-5 text-[13.5px] text-navy transition-colors",
+                  children: "Cancel",
+                }),
+                (0, t.jsx)("button", {
+                  type: "button",
+                  onClick: sv,
+                  className: "inline-flex min-h-11 items-center justify-center gap-2 bg-navy px-6 text-[13.5px] font-medium text-white transition-colors hover:bg-navy-2",
+                  children: sc > 0 ? "Save Changes" : "Add to Plan",
+                }),
+              ],
+            }),
+          ],
+        }),
+      });
+    }
+
+    function _g2({ goalIds: e, selected: l, onToggle: n, onSelectAll: i, onSetCategory: sk, accountMedia: am, setAccountMedia: sam, otherAccountMedia: oam, setOtherAccountMedia: soam, creativePackage: cp, setCreativePackage: scp, customCreative: cr, setCustomCreative: scr }) {
+      let [openId, setOpenId] = (0, a.useState)(null),
+        [draft, setDraft] = (0, a.useState)(null),
+        open = (id) => {
+          setOpenId(id);
+          setDraft({ sel: (l[id] || []).slice(), am: (am || []).slice(), oam: oam || "", cp: cp || null, cr: cr || "" });
+        },
+        close = () => { setOpenId(null); setDraft(null); },
+        save = () => {
+          if (!openId || !draft) { close(); return; }
+          sk(openId, (draft.sel || []).slice());
+          if (openId === "accounts") { sam(draft.am || []); soam(draft.oam || ""); }
+          if (openId === "creative") { scp(draft.cp || null); scr(draft.cr || ""); }
+          close();
+        },
+        cat = openId ? _CP.find((c) => c.id === openId) : null;
+      return (0, t.jsxs)(t.Fragment, {
+        children: [
+          (0, t.jsx)("div", {
+            className: "grid gap-px bg-hairline md:grid-cols-2",
+            children: _CP.map((c, s) => {
+              let n = _capStat(c, l, am, cp, cr);
+              return (0, t.jsx)(_CAPCARD, { cat: c, index: s, count: n, checked: n > 0 || openId === c.id, onOpen: open }, c.id);
+            }),
+          }),
+          cat && draft ? (0, t.jsx)(_CAPMODAL, { cat: cat, draft: draft, setDraft: setDraft, onCancel: close, onSave: save, savedCount: _capStat(cat, l, am, cp, cr) }) : null,
         ],
       });
     }
@@ -2275,13 +2319,14 @@
                             num: "04",
                             title: "Select Your Capabilities",
                             en: "Select Your Capabilities",
-                            desc: "Select the services you need; combine freely across categories.",
+                            desc: "Browse the service categories, then open one to choose the specific services you need.",
                             done: ee.includes("capabilities"),
                             children: (0, t.jsx)(_g2, {
                               goalIds: e,
                               selected: G,
                               onToggle: (e, t) => R((a) => _capToggle(a, e, t)),
                               onSelectAll: (e) => R((t) => _capAll(t, e)),
+                              onSetCategory: (id, ids) => R((prev) => Object.assign({}, prev, { [id]: ids })),
                               accountMedia: _asp,
                               setAccountMedia: _sasp,
                               otherAccountMedia: _oasp,
