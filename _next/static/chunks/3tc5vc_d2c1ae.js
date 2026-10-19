@@ -444,12 +444,13 @@
       }).length;
     }
 
-    function _CAPCARD({ cat: e, index: l, count: n, checked: k, onOpen: i }) {
+    function _CAPCARD({ cat: e, index: l, count: n, checked: k, single: sg, onOpen: i, onToggle: ot }) {
       let unit = e.id === "accounts" ? "Platform" : "Service";
       return (0, t.jsxs)("button", {
         type: "button",
-        onClick: () => i(e.id),
-        "aria-haspopup": "dialog",
+        onClick: () => (sg ? ot(e.id, sg.id) : i(e.id)),
+        "aria-haspopup": sg ? void 0 : "dialog",
+        "aria-pressed": sg ? (n > 0 ? "true" : "false") : void 0,
         className: (0, h.cn)("amcap-card group relative flex w-full flex-col p-5 text-left transition-colors sm:p-7", k ? "amcap-card--on bg-frost" : "bg-white"),
         children: [
           (0, t.jsxs)("div", {
@@ -481,6 +482,15 @@
             ],
           }),
           (0, t.jsx)("p", { className: "mt-4 text-[13.5px] leading-relaxed text-steel", children: e.summary }),
+          sg
+            ? (0, t.jsxs)("span", {
+                className: "amcap-inline",
+                children: [
+                  (0, t.jsx)("span", { className: "block text-[14px] font-medium leading-snug text-navy", children: sg.name }),
+                  (0, t.jsx)("span", { className: "type-mono-label mt-1 block text-steel", children: sg.unit }),
+                ],
+              })
+            : null,
           (0, t.jsxs)("span", {
             className: "amcap-cta mt-auto pt-5",
             children: [
@@ -493,8 +503,8 @@
               (0, t.jsxs)("span", {
                 className: "ml-auto inline-flex items-center gap-2 text-[12.5px] font-medium text-azure",
                 children: [
-                  n ? "Edit Selection" : "Explore Services",
-                  (0, t.jsx)("span", { "aria-hidden": "true", className: "amcap-arrow", children: "\u2192" }),
+                  sg ? (n ? "Remove from Plan" : "Add to Plan") : n ? "Edit Selection" : "Explore Services",
+                  sg ? null : (0, t.jsx)("span", { "aria-hidden": "true", className: "amcap-arrow", children: "\u2192" }),
                 ],
               }),
             ],
@@ -717,8 +727,10 @@
           (0, t.jsx)("div", {
             className: "grid gap-px bg-hairline md:grid-cols-2",
             children: _CP.map((c, s) => {
-              let n = _capStat(c, l, am, cp, cr);
-              return (0, t.jsx)(_CAPCARD, { cat: c, index: s, count: n, checked: n > 0 || openId === c.id, onOpen: open }, c.id);
+              let cnt = _capStat(c, l, am, cp, cr),
+                vis = (c.products || []).filter((p) => !p.hidden),
+                one = c.inline && vis.length === 1 ? vis[0] : null;
+              return (0, t.jsx)(_CAPCARD, { cat: c, index: s, count: cnt, checked: cnt > 0 || openId === c.id, single: one, onOpen: open, onToggle: n }, c.id);
             }),
           }),
           cat && draft ? (0, t.jsx)(_CAPMODAL, { cat: cat, draft: draft, setDraft: setDraft, onCancel: close, onSave: save, savedCount: _capStat(cat, l, am, cp, cr) }) : null,

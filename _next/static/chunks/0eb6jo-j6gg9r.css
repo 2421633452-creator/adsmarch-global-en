@@ -1384,6 +1384,15 @@ main > section:nth-of-type(1):has([class*="88svh"]) dl { margin-top: 0; }
   outline: 2px solid var(--color-azure);
   outline-offset: -2px;
 }
+.amcap-inline {
+  display: block;
+  margin-top: 14px;
+  padding: 2px 0 2px 11px;
+  border-left: 2px solid color-mix(in srgb, var(--color-azure) 30%, transparent);
+}
+.amcap-card--on .amcap-inline {
+  border-left-color: var(--color-azure);
+}
 .amcap-cta {
   display: flex;
   flex-wrap: wrap;
